@@ -34,6 +34,7 @@ export class ColourComponent implements OnInit {
 
     public ourColour: MMColour = new MMColour();
     public test: string = 'red';
+    public url: string = 'http://192.168.1.4';
 
     constructor(private http: HttpClient) { }
 
@@ -48,7 +49,7 @@ export class ColourComponent implements OnInit {
     }
 
     private makeUpdateColourRequest(): Observable<any> {
-        const requestUrl = `192.168.1.4/${this.ourColour.createQueryString()}`;
+        const requestUrl = `${this.url}/${this.ourColour.createQueryString()}`;
         console.log(`Making request to: ${requestUrl}`);
         return this.http.get(requestUrl);
     }
